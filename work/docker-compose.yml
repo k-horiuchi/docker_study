@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  webserver:
+    build:
+      context: ./server
+    image: khoriuchi1996/shopify_app_develop
+    tty: true
+    volumes:
+     - ./server:/server
+    ports:
+      - "8888:8888"
+    command: [sh, -c, npm i express && node index.js]
